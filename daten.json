@@ -1,0 +1,132 @@
+{
+  "firma": "Siegfried Beck Garten- und Landschaftsbau",
+  "stelle": "Vorarbeiter GaLaBau (m/w/d)",
+  "ort": "Lohfelden",
+  "plz": "34253",
+  "farbe_primary": "#008C57",
+  "farbe_secondary": "#630D56",
+  "region_badge": "Lohfelden & Umgebung",
+  "benefit_top": "Voll ausgestatteter Firmenwagen & kurzer Freitag",
+  "benefits": [
+    "Voll ausgestatteter Firmenwagen",
+    "Kurzer Freitag & keine Montageeinsätze mit Übernachtung",
+    "Weihnachtsgeld, Jahresprämie & vermögenswirksame Leistungen",
+    "Unbefristeter Arbeitsvertrag & betriebliche Altersvorsorge",
+    "Anhängerführerschein & Zertifizierungen – Kosten übernimmt der Betrieb",
+    "Interne Karrierechancen, flache Hierarchien & strukturierte Abläufe",
+    "Firmenhandy, Getränke-Flatrate & Gartengeräte zur privaten Nutzung"
+  ],
+  "aufgaben": [
+    "Du führst und leitest deine eigene Kolonne – und packst auf der Baustelle selbst mit an",
+    "Du organisierst und koordinierst die Baustellen, planst Arbeitsabläufe und überwachst sie",
+    "Du stellst Qualität, Sicherheit und Termine sicher und koordinierst Material- und Maschineneinsatz",
+    "Bautagebuch, Aufmaß und Rapportwesen gehören mit dazu"
+  ],
+  "anforderung": "Abgeschlossene Ausbildung im GaLaBau oder vergleichbare Qualifikation, Erfahrung in der Führung von Mitarbeitern und eine strukturierte, eigenverantwortliche Arbeitsweise. Führerschein Klasse B, idealerweise BE.",
+  "fachrichtungen_frage": "Was ist dein beruflicher Hintergrund?",
+  "fachrichtungen": [
+    {
+      "label": "Garten- & Landschaftsbau",
+      "icon": "🌿",
+      "qualifikationen": [
+        {
+          "label": "Ausgebildeter Landschaftsgärtner",
+          "icon": "🎓"
+        },
+        {
+          "label": "Vorarbeiter / Meister / Techniker",
+          "icon": "🏅"
+        },
+        {
+          "label": "Erfahren ohne Ausbildung",
+          "icon": "💪"
+        },
+        {
+          "label": "Quereinsteiger",
+          "icon": "🔄"
+        }
+      ]
+    },
+    {
+      "label": "Pflaster- / Straßen- / Tiefbau",
+      "icon": "🧱",
+      "qualifikationen": [
+        {
+          "label": "Ausbildung im Straßen-/Tiefbau",
+          "icon": "🎓"
+        },
+        {
+          "label": "Vorarbeiter / Meister / Techniker",
+          "icon": "🏅"
+        },
+        {
+          "label": "Erfahren ohne Ausbildung",
+          "icon": "💪"
+        },
+        {
+          "label": "Quereinsteiger",
+          "icon": "🔄"
+        }
+      ]
+    },
+    {
+      "label": "Anderer Bereich",
+      "icon": "🛠️",
+      "qualifikationen": [
+        {
+          "label": "Ausbildung in einem anderen Gewerk",
+          "icon": "🎓"
+        },
+        {
+          "label": "Vorarbeiter / Meister / Techniker",
+          "icon": "🏅"
+        },
+        {
+          "label": "Erfahren ohne Ausbildung",
+          "icon": "💪"
+        },
+        {
+          "label": "Quereinsteiger",
+          "icon": "🔄"
+        }
+      ]
+    }
+  ],
+  "ueber": {
+    "fakten": [
+      {
+        "zahl": "22",
+        "label": "Mitarbeiter"
+      },
+      {
+        "zahl": "1974",
+        "label": "gegründet"
+      },
+      {
+        "zahl": "2.",
+        "label": "Generation"
+      }
+    ],
+    "text": "Siegfried Beck Garten- und Landschaftsbau ist ein etabliertes Unternehmen mit Sitz in Lohfelden – gegründet 1974 und heute in zweiter Generation geführt. In der Region Nordhessen hat sich der Betrieb einen Namen gemacht: Wege, Zufahrten und Terrassen, Gestaltung und Pflege von Außenanlagen sowie die Kontrolle und Sicherheit von Spielplätzen und Baumbeständen."
+  },
+  "kunde_tab": "06 Siegfried Beck Garten- und Landschaftsbau",
+  "quelle": "https://beck-galabau.green-careers.de",
+  "logo": "logo.jpg",
+  "karte": {
+    "bild": "img/karte.jpg",
+    "label": "Lohfelden"
+  },
+  "hero_bild": "img/hero.jpg",
+  "bilder": [
+    "img/f1.jpg",
+    "img/f2.jpg",
+    "img/f3.jpg",
+    "img/f4.jpg",
+    "img/f5.jpg",
+    "img/f6.jpg",
+    "img/f7.jpg",
+    "img/f8.jpg",
+    "img/f9.jpg",
+    "img/f10.jpg"
+  ]
+}
