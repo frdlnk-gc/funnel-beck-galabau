@@ -1,0 +1,37 @@
+[
+  {
+    "name": "creative-1-benefit-checkliste",
+    "bilder": [
+      "logo.jpg",
+      "img/f2.jpg"
+    ],
+    "prompt": "Erstelle ein Werbe-Creative im Hochformat für eine Meta-Stellenanzeige. Beigefügt: (1) das Firmenlogo 'SIEGFRIED BECK Garten- und Landschaftsbau' (gruener Schriftzug mit gruen-lila Baum-Kreis-Symbol, dazu eine lila Unterzeile), (2) ein Foto von drei Mitarbeitern in grünen Firmen-T-Shirts, die auf und neben einem gelben Minibagger stehen und mit Daumen nach oben in die Kamera schauen. Nutze das Foto unverändert als obere Bildhälfte (ohne die Köpfe anzuschneiden), darunter eine ruhige dunkelgrüne Fläche (#006B43) mit dezentem Verlauf. Layout unten, von oben nach unten: Headline (groß, fett, weiß): „VORARBEITER GaLaBau“ mit kleinem Zusatz „(m/w/d)“. Standort-Zeile mit kleinem roten Pin-Symbol: „Lohfelden · Kassel · Baunatal & Umgebung“. 4 Benefit-Pills (weiße abgerundete Balken mit grünem Häkchen, schwarze Schrift): „Voll ausgestatteter Firmenwagen“ / „Kurzer Freitag“ / „Keine Montage mit Übernachtung“ / „Weihnachtsgeld & Jahresprämie“. Unten ein Balken in Lila (#630D56, weiße Schrift): „Erhalte Dein unverbindliches Job-Angebot – ohne Lebenslauf & Anschreiben“. Das beigefügte Logo original und unverändert oben links auf weißer Mini-Kachel. Sauberes, modernes Recruiting-Design, gut lesbar auf dem Handy. Verboten: Telefonnummern, E-Mail-Adressen, Website-URLs, QR-Codes, Personennamen, Gehaltszahlen, erfundene Siegel oder Logos; Logo und Fotos nicht veraendern, verzerren oder umfaerben (nur zuschneiden). Aller Text vollstaendig innerhalb seiner Flaechen, nichts angeschnitten, Deutsch fehlerfrei."
+  },
+  {
+    "name": "creative-2-team-collage",
+    "bilder": [
+      "logo.jpg",
+      "img/f1.jpg",
+      "img/f5.jpg",
+      "img/f3.jpg"
+    ],
+    "prompt": "Erstelle ein Werbe-Creative im Hochformat für eine Meta-Stellenanzeige als moderne Foto-Collage im Raster (2 Spalten). Beigefügt: (1) das Firmenlogo 'SIEGFRIED BECK Garten- und Landschaftsbau' (gruener Schriftzug mit gruen-lila Baum-Kreis-Symbol, dazu eine lila Unterzeile), (2) Foto einer aufgestellten Mannschaft in grünen Firmen-T-Shirts mit Motorsensen und Geräten vor den Firmenfahrzeugen, (3) Foto einer Baustelle an einem Mehrfamilienhaus mit Mobilbagger und Radlader, (4) Foto eines fertig gepflasterten Weges mit frisch bepflanzten Beeten. Oben links eine weiße Kachel mit dem beigefügten Logo (original, unverändert), daneben groß „Vorarbeiter GaLaBau“ + klein „(m/w/d)“ + Standort-Zeile mit kleinem roten Pin-Symbol „Lohfelden bei Kassel“. Die drei Fotos unverändert als Kacheln mit schmalen weißen Stegen verteilen. Über der Collage eine schmale dunkelgrüne Leiste (#006B43, weiße Schrift): „22 Kollegen · seit 1974 · 2. Generation“. Unten rechts eine Kachel in Lila (#630D56, weiße Schrift): „Jetzt unverbindliches Job-Angebot erhalten – mit 1 Klick!“. Clean, hell, wie ein echter Einblick in den Betrieb. Verboten: Telefonnummern, E-Mail-Adressen, Website-URLs, QR-Codes, Personennamen, Gehaltszahlen, erfundene Siegel oder Logos; Logo und Fotos nicht veraendern, verzerren oder umfaerben (nur zuschneiden). Aller Text vollstaendig innerhalb seiner Flaechen, nichts angeschnitten, Deutsch fehlerfrei."
+  },
+  {
+    "name": "creative-3-karte-lokal",
+    "bilder": [
+      "logo.jpg",
+      "img/karte.jpg"
+    ],
+    "prompt": "Erstelle ein Werbe-Creative im Hochformat für eine Meta-Stellenanzeige mit regionalem Hook. Beigefügt: (1) das Firmenlogo 'SIEGFRIED BECK Garten- und Landschaftsbau' (grüner Schriftzug mit grün-lila Baum-Kreis-Symbol), (2) ein Kartenausschnitt der Region um Lohfelden bei Kassel. Nutze die Karte unverändert als untere Bildhälfte und setze genau in die Mitte der Karte einen deutlich sichtbaren roten Standort-Pin mit weißem Rand, direkt daneben ein weißes abgerundetes Label mit dunkelgrüner Schrift: „Lohfelden“. Die obere Bildhälfte ist eine ruhige dunkelgrüne Fläche (#006B43). Layout oben, von oben nach unten: das beigefügte Logo original und unverändert auf einer weißen abgerundeten Kachel; darunter die Headline groß, fett, weiß: „VORARBEITER GaLaBau“ mit kleinem Zusatz „(m/w/d) gesucht“; darunter eine Zeile in Weiß mit kleinem roten Pin-Symbol: „Lohfelden · Kassel · Baunatal · Melsungen & Umgebung“; darunter nebeneinander zwei weiße Pills mit dunkelgrüner Schrift: „Eigene Kolonne führen“ und „Firmenwagen inklusive“. Ganz unten über der Karte ein durchgehender Balken in Lila (#630D56, weiße Schrift): „In 60 Sekunden zum unverbindlichen Job-Angebot“. Gesucht wird ausschließlich die Position „Vorarbeiter GaLaBau“ – verwende keine andere Berufsbezeichnung (kein „Gärtner“, kein „Landschaftsgärtner“) und keine zusätzlichen Slogans. Sauberes, modernes Recruiting-Design, gut lesbar auf dem Handy. Verboten: Telefonnummern, E-Mail-Adressen, Website-URLs, QR-Codes, Personennamen, Gehaltszahlen, erfundene Siegel oder Logos; Logo und Karte nicht veraendern, verzerren oder umfaerben (nur zuschneiden). Aller Text vollstaendig innerhalb seiner Flaechen, nichts angeschnitten, Deutsch fehlerfrei.",
+    "hinweis": "FINAL NICHT per API erzeugt: gpt-image-2 hat in 3 Läufen entweder eigene Headline + falsche Berufsbezeichnung erfunden oder den kompletten Textblock weggelassen. Creative 3 wurde deshalb deterministisch mit PIL komponiert (Karte + Logo + exakt diese Texte + OSM-Credit) – Skript siehe creatives.md."
+  },
+  {
+    "name": "creative-4-dein-arbeitsplatz",
+    "bilder": [
+      "logo.jpg",
+      "img/hero.jpg"
+    ],
+    "prompt": "Erstelle ein Werbe-Creative im Hochformat für eine Meta-Stellenanzeige als Vollbild-Foto mit Text-Overlay. Beigefügt: (1) das Firmenlogo 'SIEGFRIED BECK Garten- und Landschaftsbau' (gruener Schriftzug mit gruen-lila Baum-Kreis-Symbol, dazu eine lila Unterzeile), (2) ein Gruppenfoto der kompletten Belegschaft in grünen Firmen-T-Shirts vor einem weißen Firmen-Transporter. Nutze das Foto formatfüllend als Hintergrund (Personen nicht anschneiden) und lege von unten einen dunklen Verlauf darüber, damit der Text sicher lesbar ist. Oben links das beigefügte Logo original und unverändert auf einer weißen Mini-Kachel. Im unteren Drittel, linksbündig: Headline groß, fett, weiß: „Deine eigene Kolonne.“, darunter etwas kleiner in Weiß: „Vorarbeiter GaLaBau (m/w/d) in Lohfelden bei Kassel“. Darunter drei kleine weiße Pills mit dunkler Schrift nebeneinander: „Unbefristet“ · „Kurzer Freitag“ · „Firmenwagen“. Ganz unten ein durchgehender Balken in Dunkelgrün (#006B43, weiße Schrift): „Jetzt unverbindliches Job-Angebot sichern“. Dokumentarisch-echter Look, kein Stockfoto-Gefühl. Verboten: Telefonnummern, E-Mail-Adressen, Website-URLs, QR-Codes, Personennamen, Gehaltszahlen, erfundene Siegel oder Logos; Logo und Fotos nicht veraendern, verzerren oder umfaerben (nur zuschneiden). Aller Text vollstaendig innerhalb seiner Flaechen, nichts angeschnitten, Deutsch fehlerfrei."
+  }
+]
