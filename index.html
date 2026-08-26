@@ -557,6 +557,66 @@ var LEAD_ID=(function(){
   }catch(e){ return gcUuid(); }
 })();
 
+/* ---------- 1st-Party Funnel-Tracking (GC-Dashboard, quiz_funnel_events) ----------
+   Gleicher Vertrag wie die allgemeinen Bewerber-LPs (bewerbung/index.html): lp_view beim
+   Laden, slide_view je Screen-Wechsel, form_start bei der ersten Interaktion,
+   lead_captured beim Haupt-Submit, profile_completed nach Teil B, submit_success/
+   'multi-betrieb' bei der Multi-Betrieb-Einwilligung. Erst damit ist der Trichter der
+   Kundenfunnel genauso auswertbar wie der der allgemeinen Funnel — vorher gab es je Kunde
+   nur die nackte Meta-Lead-Zahl (Auswertung 26.08.2026).
+   landingpage_id = 'kundenfunnel-<slug>': je Kunde einzeln UND ueber
+   like 'kundenfunnel-%' gemeinsam auswertbar.
+   Nur live auf *.green-careers.de aktiv. Metas Ad-Review-Crawler filtert der Endpoint
+   serverseitig per IP (AS32934) — clientseitig ist dafuer nichts noetig.
+   Tracking darf den Funnel NIE brechen: alles in try/catch, fetch mit .catch(). */
+var GC_FUNNEL_ENDPOINT='https://gc-tracking-dashboard.vercel.app/api/recruiting/funnel-event';
+var GC_FUNNEL_LIVE=/(^|\.)green-careers\.de$/.test(location.hostname);
+var GC_FUNNEL_LP_ID=(function(){
+  /* Slug aus dem Host: josef-poetter.green-careers.de -> kundenfunnel-josef-poetter.
+     Faellt der Host aus (lokaler Test, Preview), aus CFG.quelle ableiten — damit ein
+     Testlauf nicht unter einer fremden landingpage_id landet. */
+  var h=location.hostname;
+  if(!/(^|\.)green-careers\.de$/.test(h)){
+    try{ h=String(CFG.quelle||'').replace(/^https?:\/\//,'').split('/')[0]; }catch(e){ h=''; }
+  }
+  var slug=String(h||'').split('.')[0];
+  return slug ? 'kundenfunnel-'+slug : 'kundenfunnel-unbekannt';
+})();
+var GC_FUNNEL_SESSION=(function(){
+  try{
+    var s=sessionStorage.getItem('gc_session_id');
+    if(!s){ s=gcUuid(); sessionStorage.setItem('gc_session_id',s); }
+    return s;
+  }catch(e){ return gcUuid(); }
+})();
+var GC_FUNNEL_UTM=(function(){
+  var out={}, p;
+  try{ p=new URLSearchParams(location.search); }catch(e){ return out; }
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'].forEach(function(k){
+    var v=p.get(k); if(v) out[k]=v;
+  });
+  /* Meta haengt ad_id/campaign_name statt utm_* an — als Fallback mappen, damit die
+     UTM-Filter im Dashboard greifen (gleiche Logik wie in bewerbung/index.html). */
+  if(!out.utm_source && (p.get('ad_id')||out.fbclid)) out.utm_source='meta';
+  if(!out.utm_campaign && p.get('campaign_name')) out.utm_campaign=p.get('campaign_name');
+  if(!out.utm_content && p.get('ad_name')) out.utm_content=p.get('ad_name');
+  return out;
+})();
+function gcFunnelTrack(eventType,slideId){
+  try{
+    var body={
+      event_type:eventType, slide_id:slideId||null, landingpage_id:GC_FUNNEL_LP_ID,
+      session_id:GC_FUNNEL_SESSION, referrer:document.referrer||'',
+      page_url:location.href, user_agent:navigator.userAgent
+    };
+    Object.keys(GC_FUNNEL_UTM).forEach(function(k){ body[k]=GC_FUNNEL_UTM[k]; });
+    if(!GC_FUNNEL_LIVE){ if(window.TRACK_DEBUG) console.log('[FUNNEL]',eventType,slideId||''); return; }
+    fetch(GC_FUNNEL_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(body),keepalive:true,credentials:'omit'}).catch(function(){});
+  }catch(e){}
+}
+gcFunnelTrack('lp_view',null);
+
 /* ---------- Kontrast-Automatik (helle CI-Farben) ---------- */
 (function(){
   function lum(hex){
@@ -668,7 +728,7 @@ function renderQualiFor(fachLabel){
   });
   box.addEventListener('click',function(e){
     var t=e.target.closest('.htile'); if(!t) return;
-    if(!STARTED){ STARTED=true; mountForms(); }
+    if(!STARTED){ STARTED=true; mountForms(); gcFunnelTrack('form_start',null); }
     S.fachrichtung=t.getAttribute('data-value');
     renderQualiFor(S.fachrichtung);
     /* Auswahl im Funnel-Screen synchron markieren (für Zurück-Navigation) */
@@ -714,6 +774,7 @@ function go(id){
   }
   if(!NAV_POP && id!==CUR) history.pushState({screen:id},'');
   CUR=id;
+  gcFunnelTrack('slide_view', id);
   if(document.body.classList.contains('funnel-open')){ funnelSec.scrollTop=0; }
   else{ card.scrollIntoView({behavior:'smooth',block:'start'}); }
   var f=document.querySelector('#'+id+' input'); if(f && window.innerWidth>=768) f.focus({preventScroll:true});
@@ -730,7 +791,7 @@ card.addEventListener('click',function(e){
   if(back){ history.back(); return; }
   var opt=e.target.closest('.opt');
   if(opt&&opt.dataset.field){
-    if(!STARTED){ STARTED=true; mountForms(); }
+    if(!STARTED){ STARTED=true; mountForms(); gcFunnelTrack('form_start',null); }
     openOverlay();
     var sib=opt.parentElement.querySelectorAll('.opt');
     sib.forEach(function(o){ o.classList.remove('sel'); });
@@ -793,6 +854,7 @@ function submit(){
       document.getElementById('doneName').textContent='Danke, '+vn+'! ';
       /* Meta-Lead NUR nach echtem, erfolgreichem Submit (validierter State) – eventID = lead_id für CAPI-Dedup */
       try{ if(window.fbq) fbq('track','Lead',{},{eventID:LEAD_ID}); }catch(e){}
+      gcFunnelTrack('lead_captured',null);
       try{ sessionStorage.setItem('gcf_used_'+LEAD_ID,'1'); }catch(e){}
       go('s-done');
     })
@@ -814,6 +876,7 @@ function submitProfil(){
   fetch(CFG.webhook,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),keepalive:true})
     .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status);
       try{ if(window.fbq) fbq('track','CompleteRegistration',{},{eventID:LEAD_ID+'-b'}); }catch(e){}
+      gcFunnelTrack('profile_completed',null);
       go('s-fertig'); })
     .catch(function(){
       btn.disabled=false; btn.innerHTML='Profil absenden <span class="arrow">→</span>';
@@ -832,7 +895,8 @@ function submitMulti(btn){
   btn.disabled=true; btn.textContent='Wird gesendet…';
   fetch(CFG.webhook,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({teil:'multi',lead_id:LEAD_ID,kunde_tab:CFG.kunde_tab,kunde:CFG.kunde,multi:'Ja'}),keepalive:true})
     .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status);
-      sessionStorage.setItem('gc_multi_'+LEAD_ID,'1'); markMultiDone(); })
+      sessionStorage.setItem('gc_multi_'+LEAD_ID,'1'); markMultiDone();
+      gcFunnelTrack('submit_success','multi-betrieb'); })
     .catch(function(){
       btn.disabled=false; btn.innerHTML='Weitere Top-Betriebe kennenlernen <span class="arrow">→</span>';
       alert('Das hat leider nicht geklappt – bitte versuch es noch einmal.');
