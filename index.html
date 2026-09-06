@@ -419,7 +419,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:30px 16px 34px;t
         <div class="multi-card multiCard" id="multiCardDone">
           <h3>Weitere Top-Betriebe kennenlernen 🚀</h3>
           <p>Sollen wir dein Profil auch anderen geprüften Betrieben in deiner Nähe vorstellen? 100 % diskret.</p>
-          <label class="multi-check"><input type="checkbox" class="multiConsent"><span>Ja, mein Profil darf passenden Betrieben in meiner Region vorgestellt werden.</span></label>
+          <label class="multi-check"><input type="checkbox" class="multiConsent"><span>Ja, mein Profil darf passenden Betrieben in meiner Region vorgestellt werden – und die GreenCareers GmbH darf mir passende Stellen und Karriere-Infos per E-Mail schicken (jederzeit abbestellbar).</span></label>
           <button type="button" class="btn btn-primary multiBtn" disabled>Weitere Top-Betriebe kennenlernen <span class="arrow">→</span></button>
         </div>
         <div class="teilb-card">
@@ -451,7 +451,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:30px 16px 34px;t
         <div class="multi-card multiCard">
           <h3>Weitere Top-Betriebe kennenlernen 🚀</h3>
           <p>Sollen wir dein Profil auch anderen geprüften Betrieben in deiner Nähe vorstellen? 100 % diskret.</p>
-          <label class="multi-check"><input type="checkbox" class="multiConsent"><span>Ja, mein Profil darf passenden Betrieben in meiner Region vorgestellt werden.</span></label>
+          <label class="multi-check"><input type="checkbox" class="multiConsent"><span>Ja, mein Profil darf passenden Betrieben in meiner Region vorgestellt werden – und die GreenCareers GmbH darf mir passende Stellen und Karriere-Infos per E-Mail schicken (jederzeit abbestellbar).</span></label>
           <button type="button" class="btn btn-primary multiBtn" disabled>Weitere Top-Betriebe kennenlernen <span class="arrow">→</span></button>
         </div>
         <button type="button" class="btn-ghost2" id="fertigClose">Nein danke – fertig</button>
@@ -537,6 +537,9 @@ footer{background:#fff;border-top:1px solid var(--line);padding:30px 16px 34px;t
 <script>
 "use strict";
 var CFG = {"webhook": "https://hook.eu1.make.com/qbgtbw4765qldxs6k603mznvra7ml7s9", "kunde_tab": "06 Siegfried Beck Garten- und Landschaftsbau", "kunde": "Siegfried Beck Garten- und Landschaftsbau", "stelle": "Vorarbeiter GaLaBau (m/w/d)", "quelle": "https://beck-galabau.green-careers.de"};
+/* Multi-Einwilligung v2 (06.09.2026): deckt Vorstellung bei Betrieben UND Stellen-/Karriere-Mails von GreenCareers. */
+var MULTI_CONSENT_TEXT = "Ja, mein Profil darf passenden Betrieben in meiner Region vorgestellt werden – und die GreenCareers GmbH darf mir passende Stellen und Karriere-Infos per E-Mail schicken (jederzeit abbestellbar).";
+var MULTI_CONSENT_VERSION = '2026-09-06';
 var FACHRICHTUNGEN = [{"label": "Garten- & Landschaftsbau", "icon": "🌿", "qualifikationen": [{"label": "Ausgebildeter Landschaftsgärtner", "icon": "🎓"}, {"label": "Vorarbeiter / Meister / Techniker", "icon": "🏅"}, {"label": "Erfahren ohne Ausbildung", "icon": "💪"}, {"label": "Quereinsteiger", "icon": "🔄"}]}, {"label": "Pflaster- / Straßen- / Tiefbau", "icon": "🧱", "qualifikationen": [{"label": "Ausbildung im Straßen-/Tiefbau", "icon": "🎓"}, {"label": "Vorarbeiter / Meister / Techniker", "icon": "🏅"}, {"label": "Erfahren ohne Ausbildung", "icon": "💪"}, {"label": "Quereinsteiger", "icon": "🔄"}]}, {"label": "Anderer Bereich", "icon": "🛠️", "qualifikationen": [{"label": "Ausbildung in einem anderen Gewerk", "icon": "🎓"}, {"label": "Vorarbeiter / Meister / Techniker", "icon": "🏅"}, {"label": "Erfahren ohne Ausbildung", "icon": "💪"}, {"label": "Quereinsteiger", "icon": "🔄"}]}];
 var QUALIFIKATIONEN = [{"label": "Ausgelernt", "icon": "🎓"}, {"label": "Meister / Techniker", "icon": "🏅"}, {"label": "Erfahren ohne Ausbildung", "icon": "💪"}, {"label": "Quereinsteiger", "icon": "🔄"}];
 var FUEHRERSCHEIN = [{"label": "Ja, Klasse B", "icon": "🚗"}, {"label": "Ja, Klasse B + BE", "icon": "🚚"}, {"label": "Ja, Klasse C/CE (LKW)", "icon": "🚛"}, {"label": "Nein", "icon": "❌"}];
@@ -893,7 +896,7 @@ function markMultiDone(){
 function submitMulti(btn){
   if(sessionStorage.getItem('gc_multi_'+LEAD_ID)){ markMultiDone(); return; }
   btn.disabled=true; btn.textContent='Wird gesendet…';
-  fetch(CFG.webhook,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({teil:'multi',lead_id:LEAD_ID,kunde_tab:CFG.kunde_tab,kunde:CFG.kunde,multi:'Ja'}),keepalive:true})
+  fetch(CFG.webhook,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({teil:'multi',lead_id:LEAD_ID,kunde_tab:CFG.kunde_tab,kunde:CFG.kunde,multi:'Ja',consent_text:MULTI_CONSENT_TEXT,consent_version:MULTI_CONSENT_VERSION}),keepalive:true})
     .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status);
       sessionStorage.setItem('gc_multi_'+LEAD_ID,'1'); markMultiDone();
       gcFunnelTrack('submit_success','multi-betrieb'); })
