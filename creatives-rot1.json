@@ -1,0 +1,38 @@
+[
+ {
+  "name": "creative-5-firmenwagen-kurzer-freitag",
+  "logo": "logo.jpg",
+  "foto": "img/f9.jpg",
+  "primary": "#008C57",
+  "kicker": "SIEGFRIED BECK GARTEN- UND LANDSCHAFTSBAU",
+  "headline": [
+   "Firmenwagen.",
+   "Kurzer Freitag."
+  ],
+  "subline": "Vorarbeiter GaLaBau (m/w/d) · Lohfelden · Kassel & Umgebung",
+  "cta": "Job-Angebot in 60 Sekunden erhalten",
+  "fokus": [
+   0.5,
+   0.45
+  ],
+  "kicker_ink": "#FFFFFF"
+ },
+ {
+  "name": "creative-6-ohne-lebenslauf",
+  "logo": "logo.jpg",
+  "foto": "img/f4.jpg",
+  "primary": "#008C57",
+  "kicker": "VORARBEITER GALABAU (M/W/D)",
+  "headline": [
+   "Ohne Lebenslauf.",
+   "Ohne Anschreiben."
+  ],
+  "subline": "Lohfelden bei Kassel · In 60 Sekunden zum Job-Angebot",
+  "cta": "Jetzt Job-Angebot sichern",
+  "fokus": [
+   0.5,
+   0.42
+  ],
+  "kicker_ink": "#FFFFFF"
+ }
+]
